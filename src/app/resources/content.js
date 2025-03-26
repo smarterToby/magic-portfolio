@@ -1,19 +1,29 @@
-import { InlineCode } from "@/once-ui/components";
+import {InlineCode} from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Tobias",
+  lastName: "Reuß",
+  birthday: new Date("2005-02-03"),
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  get age() {
+    let alter = new Date().getFullYear() - this.birthday.getFullYear();
+    const m = new Date().getMonth() - this.birthday.getMonth();
+
+    if (m < 0 || (m === 0 && birthday.getDate() < this.birthday.getDate())) {
+      alter--;
+    }
+    return alter;
+  },
+  role: "Software Engineer",
   avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  location: "Europe/Berlin", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["German", "English"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
@@ -29,22 +39,22 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/smarterToby",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/tobiasreuss",
   },
   {
     name: "X",
     icon: "x",
-    link: "",
+    link: "https://x.com/smarterToby",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:contact@tobiasreuss.com",
   },
 ];
 
@@ -52,11 +62,11 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Software Engineer</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm {person.firstName}, a Software Engineer at <InlineCode>IBM</InlineCode>, where I craft intuitive
+      <br/> user experiences. After hours, I build my own projects.
     </>
   ),
 };
@@ -73,7 +83,7 @@ const about = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -81,9 +91,11 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        {person.firstName} is a {person.age}-year-old software engineer from Germany, deeply passionate about coding and
+        the continuous
+        pursuit of knowledge. His focus is on staying at the forefront of technology by learning new languages,
+        frameworks, and tools to refine my skill set and deliver efficient, scalable solutions. He's always eager to
+        take on new challenges that push the boundaries of his expertise.
       </>
     ),
   },
@@ -92,41 +104,29 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "IBM",
+        timeframe: "2024 - Present",
+        role: "Cloud Application Developer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Developing and maintaining cloud-based applications for clients in the financial industry, with a focus on
+            clean architecture, performance, and reliability.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Collaborating closely with cross-functional teams to deliver secure and scalable software solutions tailored
+            to client needs.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "NÜRNBERGER Versicherung",
+        timeframe: "2021 - 2024",
+        role: "Apprenticeship as a Software Developer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Worked as a fullstack developer during the apprenticeship, building, maintaining, and deploying several
+            cloud-based applications across various departments.
           </>,
         ],
         images: [],
@@ -134,16 +134,12 @@ const about = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
+        name: "State Vocational College III",
         description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
       },
     ],
   },
@@ -152,38 +148,38 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Java",
+        description: "Proficient in Java for backend development and enterprise applications.",
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Spring",
+        description: "Experienced in building scalable web applications using Spring Boot.",
       },
-    ],
+      {
+        title: "TypeScript",
+        description: "Writing clean, type-safe code for robust frontend and backend systems.",
+      },
+      {
+        title: "Angular",
+        description: "Developing dynamic, enterprise-level SPAs with Angular.",
+      },
+      {
+        title: "React w/Next.js",
+        description: "Creating modern, server-rendered React apps using Next.js.",
+      },
+      {
+        title: "AWS",
+        description: "Deploying and managing cloud infrastructure with AWS services.",
+      },
+      {
+        title: "Kubernetes",
+        description: "Orchestrating containerized applications with Kubernetes.",
+      },
+      {
+        title: "Docker",
+        description: "Containerizing applications for consistent and scalable deployment.",
+      },
+    ]
   },
 };
 
@@ -196,7 +192,7 @@ const blog = {
 };
 
 const work = {
-  label: "Work",
+  label: "Projects",
   title: "My projects",
   description: `Design and dev projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
@@ -208,78 +204,7 @@ const gallery = {
   title: "My photo gallery",
   description: `A photo collection by ${person.name}`,
   // Images from https://pexels.com
-  images: [
-    {
-      src: "/images/gallery/img-01.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-02.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-03.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-04.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-05.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-06.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-07.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-08.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-09.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-10.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-11.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/img-12.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-13.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/img-14.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-  ],
+  images: [],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export {person, social, newsletter, home, about, blog, work, gallery};
