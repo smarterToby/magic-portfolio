@@ -129,7 +129,7 @@ const about = {
             },
             {
                 company: "NÜRNBERGER Versicherung",
-                timeframe: "2011 - 2024",
+                timeframe: "2021 - 2024",
                 role: "Trainee Software Developer",
                 achievements: [
                     <>
