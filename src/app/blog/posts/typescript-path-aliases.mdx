@@ -1,0 +1,78 @@
+---
+title: "Simplifying Imports with Path Aliases in TypeScript"
+publishedAt: "2025-05-06"
+summary: "Discover how to use path aliases in TypeScript to make your import statements cleaner and more maintainable."
+tag: "TypeScript"
+---
+
+Long relative paths in module imports can clutter your code and make it harder to read. **Path Aliases** in TypeScript let you define shortcuts for commonly used directories, turning messy imports like `../../../components` into clean ones like `@components`.
+
+## What are Path Aliases?
+
+Path aliases allow you to create custom names for directories in your project. Instead of relying on relative paths, you can use aliases to reference folders directly, improving code readability and maintainability.
+
+### Setting Up Path Aliases
+
+To use path aliases, configure them in your `tsconfig.json` file. Here's an example:
+
+<CodeBlock
+    codeInstances={[
+        {
+            code: `
+{
+\t...
+\t"compilerOptions": {
+  \t  "baseUrl": "./",
+  \t  "paths": {
+  \t    "@components/*": ["src/components/*"],
+  \t    "@utils/*": ["src/utils/*"]
+  \t  }
+  \t}
+}
+      `,
+            language: "json",
+            label: "tsconfig.json"
+        }
+    ]}
+/>
+
+In this configuration:
+- `baseUrl` is set to the root directory of your project.
+- `paths` defines the aliases:
+- `@components/*` maps to `src/components/*`.
+- `@utils/*` maps to `src/utils/*`.
+
+### Using Path Aliases in Imports
+
+Once configured, you can use these aliases in your import statements:
+
+<CodeBlock
+    codeInstances={[
+        {
+            code: `
+import { MyComponent } from '@components/MyComponent';
+import { helperFunction } from '@utils/helpers';
+      `,
+            language: "typescript",
+            label: "Import Example"
+        }
+    ]}
+/>
+
+This is much cleaner than using relative paths like `../../components/MyComponent`.
+
+### Benefits of Path Aliases
+
+- **Cleaner Code**: Shorter and more readable import statements.
+- **Easier Refactoring**: If you move a folder, you only need to update the alias in `tsconfig.json`, not every import.
+- **Consistency**: Uniform import patterns across your project.
+
+**Note**: Path aliases work natively in TypeScript and can also be used in JavaScript projects with tools like Babel or Webpack.
+
+## Conclusion
+
+Path aliases are a simple yet powerful feature in TypeScript that significantly improve code organization and maintainability, especially in larger projects. They reduce the complexity of import paths and make your code easier to understand.
+
+<Row fillWidth horizontal="center" marginTop="16">
+    <Button href="https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping" label="Learn More" variant="primary" suffixIcon="chevronRight" />
+</Row>

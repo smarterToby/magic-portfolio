@@ -1,0 +1,85 @@
+---
+title: "AlgoFlow: Interactive Sorting Algorithm Visualizer"
+publishedAt: "2025-01-08"
+summary: "Explore AlgoFlow, an educational web app that visualizes sorting algorithms step-by-step, making complex concepts accessible and engaging for learners."
+images:
+  - "/images/projects/algoflow/screenshot.png"
+  - "/images/projects/algoflow/cover.png"
+team:
+  - name: "Tobias Reuss"
+role: "Software Engineer"
+avatar: "/images/avatar.jpg"
+linkedIn: "https://www.linkedin.com/in/tobiasreuss"
+link: "https://algoflow.reuss.pro/"
+---
+
+## Overview
+
+AlgoFlow is an interactive web application designed to demystify sorting algorithms for learners. By visualizing algorithms like Bubble Sort, Merge Sort, and Quick Sort in real-time, it provides an engaging way to understand their mechanics and performance. The app combines a sleek interface with intuitive controls to make algorithm learning accessible to students and developers alike.
+
+<SmartImage
+    src="/images/projects/algoflow/screenshot.png"
+    alt="AlgoFlow cover image"
+    sizes="640px"
+    aspectRatio="16/9"
+    radius="l"
+/>
+
+## Key Features
+
+<AccordionGroup
+    items={[
+        {
+            title: "Real-Time Visualizations",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">Watch Bubble Sort, Insertion Sort,
+                Selection Sort, Merge Sort, and Quick Sort in action with step-by-step animations that highlight data
+                manipulation.</Text>
+        },
+        {
+            title: "Interactive Controls",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">Adjust array size, animation speed, or
+                step through the algorithm manually to explore its logic at your own pace.</Text>
+        },
+        {
+            title: "Performance Insights",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">Compare execution times and understand
+                algorithmic complexity with real-time performance metrics.</Text>
+        },
+        {
+            title: "Responsive Design",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">Built for accessibility, AlgoFlow works
+                seamlessly on desktops, tablets, and mobile devices.</Text>
+        }
+    ]}
+/>
+
+## Technologies Used
+
+AlgoFlow leverages modern web technologies to deliver a smooth and efficient experience:
+
+- **React with Next.js**: Powers the interactive UI and manages state for smooth transitions between algorithm steps.
+- **Tailwind CSS**: Enables rapid, utility-first styling and responsive layouts.
+- **Vercel**: Ensures fast deployment and global accessibility.
+
+<Button href="https://nextjs.org" weight="default" label="Learn about Next.js" size="s" variant="tertiary"
+        suffixIcon="chevronRight"/>
+
+## Challenges and Learnings
+
+Animating algorithm steps without compromising accuracy or performance was a key challenge. Managing asynchronous state updates in React to ensure smooth animations required careful optimization. Additionally, ensuring accessibility across devices meant rigorous testing and responsive design adjustments.
+
+<Feedback
+    icon
+    variant="success"
+    title="Key Takeaway"
+    description="Balancing visual clarity with technical accuracy taught me how to optimize React state management for real-time applications."
+    marginBottom="24"
+/>
+
+## Outcome
+
+AlgoFlow transforms abstract sorting algorithms into tangible, interactive experiences. It’s actively used by students and self-taught developers to explore algorithm behavior and performance. The app has made learning more approachable, fostering a deeper understanding of computer science concepts.
+
+<Row fillWidth horizontal="center" marginTop="16">
+    <Button href="https://algoflow.reuss.pro/" label="Try AlgoFlow" variant="primary" suffixIcon="chevronRight"/>
+</Row>

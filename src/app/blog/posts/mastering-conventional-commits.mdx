@@ -1,0 +1,126 @@
+---
+title: "Mastering Commit Messages with Conventional Commits"
+publishedAt: "2025-05-17"
+summary: "Learn how Conventional Commits can transform your project's commit history into a clear, structured, and automated changelog."
+tag: "Development"
+---
+
+Every developer knows the pain of deciphering vague commit messages like "fixed stuff" or "updates." In a team setting, this can lead to confusion and wasted time. Enter Conventional Commits - a simple yet powerful specification for writing meaningful commit messages.
+
+## What are Conventional Commits?
+
+Conventional Commits is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history, which makes it easier to write automated tools and generate changelogs.
+
+The commit message should be structured as follows:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Types
+
+The type indicates the nature of the changes. Common types include:
+
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc.)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **test**: Adding missing tests or correcting existing tests
+- **chore**: Changes to the build process or auxiliary tools and libraries
+
+### Scope
+
+The scope provides additional contextual information and is optional. It can be anything specifying the place of the commit change, like a module or a file.
+
+### Description
+
+A short description of the change, written in the imperative mood, e.g., "add feature" instead of "added feature."
+
+### Body and Footer
+
+The body can include more detailed explanatory text, and the footer can contain information about breaking changes or issues closed.
+
+## Why Use Conventional Commits?
+
+Using Conventional Commits brings several benefits:
+
+- **Automated Changelogs**: Tools can parse the commit messages to generate changelogs automatically.
+- **Semantic Versioning**: Helps in determining the next version number based on the types of commits.
+- **Improved Collaboration**: Makes it easier for team members to understand the history and intent behind changes.
+- **Better Tooling**: Enables better integration with tools like linters, CI/CD pipelines, and release automation.
+
+## Examples
+
+Here are some examples of Conventional Commit messages:
+
+<CodeBlock
+    codeInstances={[
+        {
+            code: `
+feat: add user authentication
+fix(api): resolve error in user endpoint
+docs: update contributing guidelines
+      `,
+            language: "plaintext",
+            label: "Basic Examples"
+        },
+        {
+            code: `
+fix(ui): resolve button alignment issue
+
+Adjust CSS to fix misaligned buttons in the navigation bar. Changes include:
+- Updating flexbox properties to ensure consistent spacing.
+- Adding media queries for responsive behavior on smaller screens.
+- Testing across Chrome, Firefox, and Safari to confirm consistency.
+
+NOTE: Developers should verify the updated styles in their local environment before merging, as this may affect custom themes.
+`,
+            language: "plaintext",
+            label: "Example with Body and Footer"
+        }
+    ]}
+/>
+
+The first set of examples shows basic commit messages with type, scope, and description.
+The second example demonstrates a more detailed commit message that includes a body with a list of changes and a footer with an important note for developers.
+
+## Implementing Conventional Commits
+
+To start using Conventional Commits in your project:
+
+1. **Educate Your Team**: Ensure everyone understands the convention and its benefits.
+2. **Use Tools**: Leverage tools like [commitlint](https://commitlint.js.org/) to enforce the convention.
+3. **Integrate with CI/CD**: Set up your continuous integration pipeline to check commit messages.
+4. **Automate Releases**: Use tools like [semantic-release](https://semantic-release.gitbook.io/) to automate versioning and changelog generation.
+
+## FAQ
+
+<AccordionGroup
+    items={[
+        {
+            title: "What if I make a mistake in a commit message?",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">You can amend the last commit message using `git commit --amend`, but be cautious with shared branches. Amending a commit rewrites history, which can cause issues if the commit has already been pushed to a shared branch. In such cases, it's better to make a new commit with the corrected message or use `git revert` if necessary.</Text>
+        },
+        {
+            title: "Can I use Conventional Commits with any git workflow?",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">Yes, it's agnostic to your branching strategy and works with any git workflow.</Text>
+        },
+        {
+            title: "Are there extensions for IDEs?",
+            content: <Text variant="body-default-s" onBackground="neutral-weak">Yes, there are extensions for popular IDEs like VSCode, such as the 'Conventional Commits' extension, which provides an interactive interface to select the type, scope, and description for your commit messages, ensuring they adhere to the Conventional Commits standard.</Text>
+        }
+    ]}
+/>
+
+## Conclusion
+
+Adopting Conventional Commits is a small change that can lead to significant improvements in your project's maintainability and collaboration efficiency. By structuring your commit messages, you pave the way for automation and clarity in your development process.
+
+<Row fillWidth horizontal="center" marginTop="16">
+    <Button href="https://conventionalcommits.org" label="Learn More" variant="primary" suffixIcon="chevronRight" />
+</Row>
