@@ -41,14 +41,14 @@ export default function About() {
       items: about.work.experiences.map((experience) => experience.company),
     },
     {
-      title: about.certificates.title,
-      display: about.certificates.display,
-      items: about.certificates.certificates.map((certificate) => certificate.name),
-    },
-    {
       title: about.studies.title,
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
+    },
+    {
+      title: about.certificates.title,
+      display: about.certificates.display,
+      items: about.certificates.certificates.map((certificate) => certificate.name),
     },
     {
       title: about.technical.title,
