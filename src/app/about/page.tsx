@@ -16,6 +16,7 @@ import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React from "react";
 import { Meta, Schema } from "@/once-ui/modules";
+import {HeadingLink} from "@/components";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -38,6 +39,11 @@ export default function About() {
       title: about.work.title,
       display: about.work.display,
       items: about.work.experiences.map((experience) => experience.company),
+    },
+    {
+      title: about.certificates.title,
+      display: about.certificates.display,
+      items: about.certificates.certificates.map((certificate) => certificate.name),
     },
     {
       title: about.studies.title,
@@ -266,13 +272,39 @@ export default function About() {
             </>
           )}
 
+          {about.certificates.display && (
+              <>
+                <Heading
+                    as="h2"
+                    id={about.certificates.title}
+                    variant="display-strong-s"
+                    marginBottom="m"
+                >
+                  {about.certificates.title}
+                </Heading>
+                <Column fillWidth gap="l" marginBottom="40">
+                  {about.certificates.certificates.map((cert, index) => (
+                      <Column key={`${cert}-${index}`} fillWidth gap="4">
+                        <Column direction="row">
+                          <HeadingLink link={cert.link} openOnClick copy={false} level={3} id={cert.name}>{cert.name}</HeadingLink>
+                        </Column>
+                        <Text variant="body-default-m" onBackground="neutral-weak">
+                          {cert.valid}
+                        </Text>
+                      </Column>
+                  ))}
+                  <Button className="mb-[40px]" href="https://www.credly.com/users/tobiasreuss" label="Explore all credentials" variant="secondary" suffixIcon="chevronRight" />
+                </Column>
+              </>
+          )}
+
           {about.technical.display && (
             <>
               <Heading
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="m"
               >
                 {about.technical.title}
               </Heading>

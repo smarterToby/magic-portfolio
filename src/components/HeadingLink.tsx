@@ -9,28 +9,38 @@ interface HeadingLinkProps {
   id: string;
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children: React.ReactNode;
+  link?: string;
+  openOnClick?: boolean;
+  copy?: boolean;
   style?: React.CSSProperties;
 }
 
-export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, style }) => {
+export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, link, style, openOnClick = false, copy = true }) => {
   const { addToast } = useToast();
 
   const copyURL = (id: string): void => {
-    const url = `${window.location.origin}${window.location.pathname}#${id}`;
-    navigator.clipboard.writeText(url).then(
-      () => {
-        addToast({
-          variant: "success",
-          message: "Link copied to clipboard.",
-        });
-      },
-      () => {
-        addToast({
-          variant: "danger",
-          message: "Failed to copy link.",
-        });
-      },
-    );
+    const url = link ?? `${window.location.origin}${window.location.pathname}#${id}`;
+
+    if(openOnClick) {
+      window.open(url, '_blank')?.focus();
+    }
+
+    if(copy) {
+      navigator.clipboard.writeText(url).then(
+          () => {
+            addToast({
+              variant: "success",
+              message: "Link copied to clipboard.",
+            });
+          },
+          () => {
+            addToast({
+              variant: "danger",
+              message: "Failed to copy link.",
+            });
+          },
+      );
+    }
   };
 
   const variantMap = {

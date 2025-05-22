@@ -67,13 +67,14 @@ const home = {
     description: `Portfolio website showcasing my work as a ${person.role}`,
     headline: <>From vision to code - shaping digital solutions</>,
     featured: {
-      display: false,
-      title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-      href: "/work/building-once-ui-a-customizable-design-system",
+        display: false,
+        title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
+        href: "/work/building-once-ui-a-customizable-design-system",
     },
     subline: (
         <>
-            I'm {person.firstName}, a Sofware Engineer at <InlineCode>IBM</InlineCode>, where I build robust software with
+            I'm {person.firstName}, a Sofware Engineer at <InlineCode>IBM</InlineCode>, where I build robust software
+            with
             cutting-edge technolgy.
         </>
     ),
@@ -141,6 +142,37 @@ const about = {
                 images: [],
             },
         ],
+    },
+    certificates: {
+        display: true,
+        title: "Certificates",
+        certificates: [
+            {
+                name: "AWS Cloud Practicioner",
+                valid: "Issued Dec 2024 - Expires Dec 2027",
+                link: "https://www.credly.com/badges/6cf7ece4-6e97-4835-8afd-0cd055c8d39f"
+            },
+            {
+                name: "Microsoft Certified: Azure Fundamentals",
+                valid: "Issued Dec 2024",
+                link: "https://learn.microsoft.com/en-us/users/tobiasreuss/credentials/e3c6925f73285cff"
+            },
+            {
+                name: "Enterprise Design Thinking Practicioner",
+                valid: "Issued Oct 2024",
+                link: "https://www.credly.com/badges/9e0875c3-d40c-487e-94d7-a097b0a64d55"
+            },
+            {
+                name: "AWS Partner: Generative AI Essentials",
+                valid: "Issued Nov 2024",
+                link: "https://www.credly.com/badges/33b29b39-79c8-459e-9840-d1aa449fe410",
+            },
+            {
+                name: "Red Hat OpenShift Developer I: Introduction to Containers",
+                valid: "Issued Nov 2024",
+                link: "https://www.credly.com/badges/dccf3978-db91-4099-bb4c-39f52363cb7b"
+            }
+        ]
     },
     studies: {
         display: true, // set to false to hide this section
