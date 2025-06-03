@@ -18,7 +18,7 @@ const person = {
     },
     role: "Software Engineer",
     avatar: "/images/avatar.jpg",
-    email: "hello@reuss.com",
+    email: "tobias@reuss.dev",
     location: "Europe/Berlin", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
     languages: ["German", "English"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -179,7 +179,7 @@ const about = {
         title: "Studies",
         institutions: [
             {
-                name: "State Vocational College III",
+                name: "State Vocational College III Fürth",
                 description: <>Studied software development. (GPA: 3.8)</>,
             },
         ],
